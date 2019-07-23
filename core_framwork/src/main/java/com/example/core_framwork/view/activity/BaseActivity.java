@@ -58,6 +58,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         return mLifecycleSubject;
     }
 
+
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
         View view = convertAutoView(name, context, attrs);
