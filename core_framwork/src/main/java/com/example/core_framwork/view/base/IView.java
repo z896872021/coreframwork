@@ -53,6 +53,8 @@ public interface IView {
 
     }
 
+    Activity getActivity();
+
     /**
      * 显示信息
      *
