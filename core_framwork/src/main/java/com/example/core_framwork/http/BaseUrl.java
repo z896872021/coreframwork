@@ -15,7 +15,7 @@
  */
 package com.example.core_framwork.http;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import okhttp3.HttpUrl;
 

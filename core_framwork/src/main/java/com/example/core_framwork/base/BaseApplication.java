@@ -17,7 +17,7 @@ package com.example.core_framwork.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.core_framwork.base.delegate.AppDelegate;
 import com.example.core_framwork.base.delegate.AppLifecycles;

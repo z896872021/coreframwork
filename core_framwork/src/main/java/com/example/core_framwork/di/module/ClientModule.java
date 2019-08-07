@@ -17,8 +17,8 @@ package com.example.core_framwork.di.module;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.core_framwork.http.GlobalHttpHandler;
 import com.example.core_framwork.http.log.RequestInterceptor;

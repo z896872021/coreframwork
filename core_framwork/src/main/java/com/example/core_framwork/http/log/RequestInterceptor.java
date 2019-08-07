@@ -15,7 +15,7 @@
  */
 package com.example.core_framwork.http.log;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 
 import com.example.core_framwork.di.module.GlobalConfigModule;

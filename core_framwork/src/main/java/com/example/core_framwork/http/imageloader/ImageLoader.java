@@ -16,7 +16,7 @@
 package com.example.core_framwork.http.imageloader;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.example.core_framwork.utils.Preconditions;
 

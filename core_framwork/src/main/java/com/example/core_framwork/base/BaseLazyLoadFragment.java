@@ -1,7 +1,7 @@
 package com.example.core_framwork.base;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 
 import com.example.core_framwork.presenter.IPresenter;

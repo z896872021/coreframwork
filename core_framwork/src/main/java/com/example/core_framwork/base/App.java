@@ -15,7 +15,7 @@
  */
 package com.example.core_framwork.base;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.core_framwork.di.component.AppComponent;
 

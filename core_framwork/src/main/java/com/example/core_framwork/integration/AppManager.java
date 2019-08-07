@@ -19,12 +19,10 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.Dialog;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.view.View;
+import androidx.annotation.Nullable;
 
 
 import java.util.Arrays;
@@ -32,11 +30,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Action;
 import timber.log.Timber;
 
 

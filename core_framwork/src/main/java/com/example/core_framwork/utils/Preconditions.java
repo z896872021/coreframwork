@@ -15,7 +15,7 @@
  */
 package com.example.core_framwork.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * ================================================

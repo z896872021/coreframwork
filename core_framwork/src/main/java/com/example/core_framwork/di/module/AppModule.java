@@ -2,14 +2,11 @@ package com.example.core_framwork.di.module;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
-import com.example.core_framwork.base.delegate.AppDelegate;
-import com.example.core_framwork.di.component.AppComponent;
 import com.example.core_framwork.integration.ActivityLifecycle;
-import com.example.core_framwork.integration.AppManager;
 import com.example.core_framwork.integration.FragmentLifecycle;
 import com.example.core_framwork.integration.IRepositoryManager;
 import com.example.core_framwork.integration.RepositoryManager;

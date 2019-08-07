@@ -16,8 +16,8 @@
 package com.example.core_framwork.integration.lifecycle;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.example.core_framwork.utils.RxLifecycleUtils;
 import com.trello.rxlifecycle2.RxLifecycle;
