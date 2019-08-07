@@ -18,7 +18,7 @@ public class FragmentDelegateImpl implements FragmentDelegate {
     private android.support.v4.app.FragmentManager mFragmentManager;
     private android.support.v4.app.Fragment mFragment;
     private IFragment iFragment;
-    private Unbinder mUnbinder;
+    protected Unbinder mUnbinder;
 
     public FragmentDelegateImpl(@NonNull android.support.v4.app.FragmentManager fragmentManager, @NonNull android.support.v4.app.Fragment fragment) {
         this.mFragmentManager = fragmentManager;

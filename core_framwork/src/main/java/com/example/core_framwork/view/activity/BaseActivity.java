@@ -38,7 +38,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
     protected final String TAG = this.getClass().getSimpleName();
     private final BehaviorSubject<ActivityEvent> mLifecycleSubject = BehaviorSubject.create();
     private Cache<String, Object> mCache;
-    private Unbinder mUnbinder;
+    protected Unbinder mUnbinder;
     @Inject
     @Nullable
     protected P mPresenter;//如果当前页面逻辑简单, Presenter 可以为 null
