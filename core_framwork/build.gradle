@@ -59,8 +59,8 @@ dependencies {
 //    权限请求
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 //    butterknife
-    implementation 'com.jakewharton:butterknife:8.8.1'
-//    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
 //    Dagger2
     implementation 'com.google.dagger:dagger-android:2.17'
     implementation 'com.google.dagger:dagger-android-support:2.17'
