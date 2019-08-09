@@ -48,7 +48,7 @@ import java.io.InputStream;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-@GlideModule(glideName = "GlideArms")
+@GlideModule(glideName = "GlideCore")
 public class GlideConfiguration extends AppGlideModule {
     public static final int IMAGE_DISK_CACHE_MAX_SIZE = 100 * 1024 * 1024;//图片缓存文件最大值为100Mb
 

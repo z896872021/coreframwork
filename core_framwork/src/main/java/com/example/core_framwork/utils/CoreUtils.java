@@ -27,6 +27,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.style.AbsoluteSizeSpan;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -229,7 +230,7 @@ public class CoreUtils {
     }
 
     /**
-     * 单例 toast
+     * 单例 toast 居中
      *
      * @param string
      */
@@ -237,6 +238,7 @@ public class CoreUtils {
         if (mToast == null) {
             mToast = Toast.makeText(context, string, Toast.LENGTH_SHORT);
         }
+        mToast.setGravity(Gravity.CENTER,0,0);
         mToast.setText(string);
         mToast.show();
     }
@@ -250,9 +252,9 @@ public class CoreUtils {
      *
      * @param text
      */
-//    public static void snackbarText(String text) {
-//        AppManager.getAppManager().showSnackbar(text, false);
-//    }
+    public static void snackbarText(String text) {
+        AppManager.getAppManager().showSnackbar(text, false);
+    }
 
     /**
      * 使用 {@link Snackbar} 长时间显示文本消息
@@ -263,9 +265,9 @@ public class CoreUtils {
      *
      * @param text
      */
-//    public static void snackbarTextWithLong(String text) {
-//        AppManager.getAppManager().showSnackbar(text, true);
-//    }
+    public static void snackbarTextWithLong(String text) {
+        AppManager.getAppManager().showSnackbar(text, true);
+    }
 
     /**
      * 通过资源id获得drawable

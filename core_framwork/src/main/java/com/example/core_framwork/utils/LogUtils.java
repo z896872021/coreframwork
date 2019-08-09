@@ -28,7 +28,7 @@ import android.util.Log;
  * ================================================
  */
 public class LogUtils {
-    private static final String DEFAULT_TAG = "MVPArms";
+    private static final String DEFAULT_TAG = "MVPCore";
     private static boolean isLog = true;
 
     private LogUtils() {
