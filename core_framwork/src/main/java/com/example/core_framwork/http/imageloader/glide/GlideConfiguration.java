@@ -76,6 +76,7 @@ public class GlideConfiguration extends AppGlideModule {
         //将配置 Glide 的机会转交给 GlideImageLoaderStrategy,如你觉得框架提供的 GlideImageLoaderStrategy
         //并不能满足自己的需求,想自定义 BaseImageLoaderStrategy,那请你最好实现 GlideAppliesOptions
         //因为只有成为 GlideAppliesOptions 的实现类,这里才能调用 applyGlideOptions(),让你具有配置 Glide 的权利
+
         BaseImageLoaderStrategy loadImgStrategy = appComponent.imageLoader().getLoadImgStrategy();
         if (loadImgStrategy != null && loadImgStrategy instanceof GlideAppliesOptions) {
             ((GlideAppliesOptions) loadImgStrategy).applyGlideOptions(context, builder);
