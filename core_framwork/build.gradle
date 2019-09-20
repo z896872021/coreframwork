@@ -20,7 +20,10 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            /**
+             * 开启混淆
+             */
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

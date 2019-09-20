@@ -17,12 +17,15 @@ package com.example.core_framwork.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 
 import com.example.core_framwork.base.delegate.AppDelegate;
 import com.example.core_framwork.base.delegate.AppLifecycles;
 import com.example.core_framwork.di.component.AppComponent;
 import com.example.core_framwork.utils.CoreUtils;
+import com.example.core_framwork.utils.KeyUtils;
 import com.example.core_framwork.utils.Preconditions;
 
 /**
@@ -42,6 +45,7 @@ import com.example.core_framwork.utils.Preconditions;
  */
 public class BaseApplication extends Application implements App {
     private AppLifecycles mAppDelegate;
+    public boolean isKeyCheckPass = false;
 
     /**
      * 这里会在 {@link BaseApplication#onCreate} 之前被调用,可以做一些较早的初始化
@@ -57,11 +61,20 @@ public class BaseApplication extends Application implements App {
         this.mAppDelegate.attachBaseContext(base);
     }
 
+
     @Override
     public void onCreate() {
+        String msg = KeyUtils.getDataKey(this);
+        if (TextUtils.isEmpty(msg)) {
+            throw (new NullPointerException());
+        }
+        isKeyCheckPass = KeyUtils.judgeKeyPass(msg);
+        if (!isKeyCheckPass)
+            return;
         super.onCreate();
-        if (mAppDelegate != null)
+        if (mAppDelegate != null && isKeyCheckPass) {
             this.mAppDelegate.onCreate(this);
+        }
     }
 
     /**
@@ -77,8 +90,8 @@ public class BaseApplication extends Application implements App {
     /**
      * 将 {@link AppComponent} 返回出去, 供其它地方使用, {@link AppComponent} 接口中声明的方法所返回的实例, 在 {@link #getAppComponent()} 拿到对象后都可以直接使用
      *
-     * @see CoreUtils#obtainAppComponentFromContext(Context) 可直接获取 {@link AppComponent}
      * @return AppComponent
+     * @see CoreUtils#obtainAppComponentFromContext(Context) 可直接获取 {@link AppComponent}
      */
     @NonNull
     @Override
