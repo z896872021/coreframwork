@@ -79,7 +79,21 @@
 -keep class android.support.** {*;}## 保留support下的所有类及其内部类
 
 -keep public class com.google.vending.licensing.ILicensingService
--keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class com.example.core_framwork.presenter.IPresenter
+-keep public class com.example.core_framwork.view.base.IView
+-keep public class com.example.core_framwork.model.IModel
+-keep public class com.example.core_framwork.integration.AppManager
+
+-keep public class com.example.core_framwork.integration.IRepositoryManager
+-keep public class com.example.core_framwork.di.component.AppComponent
+-keep public class com.example.core_framwork.utils.CoreUtils
+-keep public class com.example.core_framwork.utils.DataHelper
+-keep public class com.example.core_framwork.utils.RxLifecycleUtils
+-keep public class com.example.core_framwork.di.scope.ActivityScope
+
+
+-keep public class * extends android.app.Activity
 #表示不混淆上面声明的类，最后这两个类我们基本也用不上，是接入Google原生的一些服务时使用的。
 #----------------------------------------------------
 
@@ -87,6 +101,7 @@
 -keep public class * extends android.support.v4.**
 -keep public class * extends android.support.v7.**
 -keep public class * extends android.support.annotation.**
+-keep public class * androidx.**
 
 
 #表示不混淆任何包含native方法的类的类名以及native方法名，这个和我们刚才验证的结果是一致
