@@ -80,11 +80,11 @@
 
 -keep public class com.google.vending.licensing.ILicensingService
 
-#-keep public class com.example.core_framwork.presenter.IPresenter
-#-keep public class com.example.core_framwork.view.base.IView
-#-keep public class com.example.core_framwork.model.IModel
--keep public class com.example.core_framwork.integration.AppManager
+-keep public class com.example.core_framwork.presenter.IPresenter
+-keep public class com.example.core_framwork.view.base.IView
+-keep public class com.example.core_framwork.model.IModel
 
+-keep public class com.example.core_framwork.integration.AppManager
 -keep public class com.example.core_framwork.integration.IRepositoryManager
 -keep public class com.example.core_framwork.di.component.AppComponent
 -keep public class com.example.core_framwork.utils.CoreUtils
