@@ -270,8 +270,4 @@
 #android-async-http
 -dontwarn com.loopj.android.http.**
 -keep class com.loopj.android.http.** { *; }
-#httpcore
--libraryjars libs/httpcore-4.3.2.jar
--dontwarn  org.apache.http.**
--keep class org.apache.http.** { *; }
 #        。。。。。。
