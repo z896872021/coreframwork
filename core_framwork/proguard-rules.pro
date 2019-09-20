@@ -80,9 +80,9 @@
 
 -keep public class com.google.vending.licensing.ILicensingService
 
--keep public class com.example.core_framwork.presenter.IPresenter
--keep public class com.example.core_framwork.view.base.IView
--keep public class com.example.core_framwork.model.IModel
+#-keep public class com.example.core_framwork.presenter.IPresenter
+#-keep public class com.example.core_framwork.view.base.IView
+#-keep public class com.example.core_framwork.model.IModel
 -keep public class com.example.core_framwork.integration.AppManager
 
 -keep public class com.example.core_framwork.integration.IRepositoryManager
@@ -101,7 +101,6 @@
 -keep public class * extends android.support.v4.**
 -keep public class * extends android.support.v7.**
 -keep public class * extends android.support.annotation.**
--keep public class * androidx.**
 
 
 #表示不混淆任何包含native方法的类的类名以及native方法名，这个和我们刚才验证的结果是一致
@@ -233,4 +232,46 @@
 -dontwarn com.google.gson.**
 -keep class com.google.gson.**{*;}
 -keep interface com.google.gson.**{*;}
+
+# Android X
+-keep class com.google.android.material.** {*;}
+-keep class androidx.** {*;}
+-keep public class * extends androidx.**
+-keep interface androidx.** {*;}
+-dontwarn com.google.android.material.**
+-dontnote com.google.android.material.**
+-dontwarn androidx.**
+# Rxjava
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+# Retrofit
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+# Okhttp3
+-dontwarn com.squareup.okhttp3.**
+-keep class com.squareup.okhttp3.** { *;}
+-dontwarn okio.**
+#Okio
+-keep class sun.misc.Unsafe { *; }
+-dontwarn java.nio.file.*
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-dontwarn okio.**
+#android-async-http
+-dontwarn com.loopj.android.http.**
+-keep class com.loopj.android.http.** { *; }
+#httpcore
+-libraryjars libs/httpcore-4.3.2.jar
+-dontwarn  org.apache.http.**
+-keep class org.apache.http.** { *; }
 #        。。。。。。
