@@ -92,9 +92,9 @@
 -keep public class * extends com.example.core_framwork.view.base.IActivity
 -keep public class * extends com.example.core_framwork.view.base.IFragment
 -keep public class * extends com.example.core_framwork.view.base.IView
--keep public interface
+#-keep public interface
 
--keep public class com.example.core_framwork.integration.AppManager
+#-keep public class com.example.core_framwork.integration.AppManager
 -keep public class com.example.core_framwork.integration.IRepositoryManager
 -keep public class com.example.core_framwork.di.component.AppComponent
 -keep public class com.example.core_framwork.utils.CoreUtils
