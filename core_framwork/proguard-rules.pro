@@ -79,11 +79,15 @@
 -keep class android.support.** {*;}## 保留support下的所有类及其内部类
 
 -keep public class com.google.vending.licensing.ILicensingService
+-keep public class com.google.vending.licensing.ILicensingService
 
--keep public class com.example.core_framwork.presenter.IPresenter
--keep public class com.example.core_framwork.view.base.IView
--keep public class com.example.core_framwork.model.IModel
+#-keep public class com.example.core_framwork.presenter.IPresenter
+#-keep public class com.example.core_framwork.view.base.IView
+#-keep public class com.example.core_framwork.model.IModel
 
+-keep public class com.example.core_framwork.model.*
+-keep public class com.example.core_framwork.presenter.*
+-keep public class com.example.core_framwork.view.**
 -keep public class com.example.core_framwork.integration.AppManager
 -keep public class com.example.core_framwork.integration.IRepositoryManager
 -keep public class com.example.core_framwork.di.component.AppComponent
@@ -270,4 +274,12 @@
 #android-async-http
 -dontwarn com.loopj.android.http.**
 -keep class com.loopj.android.http.** { *; }
+#clide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 #        。。。。。。
