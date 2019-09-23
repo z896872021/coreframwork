@@ -88,10 +88,12 @@
 #-keep public class com.example.core_framwork.model.*
 #-keep public class com.example.core_framwork.presenter.*
 #-keep public class com.example.core_framwork.view.base.*
--keep public class * com.example.core_framwork.presenter.IPresenter
--keep public class * com.example.core_framwork.view.base.IActivity
--keep public class * com.example.core_framwork.view.base.IFragment
--keep public class * com.example.core_framwork.view.base.IView
+
+-keep public interface * com.example.core_framwork.presenter.IPresenter
+-keep public interface * com.example.core_framwork.view.base.IActivity
+-keep public interface * com.example.core_framwork.view.base.IFragment
+-keep public interface * com.example.core_framwork.view.base.IView
+-keep public interface
 
 -keep public class com.example.core_framwork.integration.AppManager
 -keep public class com.example.core_framwork.integration.IRepositoryManager
