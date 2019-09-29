@@ -30,9 +30,9 @@ import java.util.Hashtable;
 public class KeyUtils {
     static boolean judgeKeyPass(String msg) {
         StringBuffer buffer = new StringBuffer();
-        String s = createKey("碳盈" + getTime());
-//        buffer.append("05E7E1586D35B7E35420ADDD5C398F1D");
-        buffer.append(s);
+//        String s = createKey("碳盈" + getTime());
+        buffer.append("05E7E1586D35B7E35420ADDD5C398F1D");
+//        buffer.append(s);
         boolean isPass = false;
         if (buffer.indexOf(msg) > -1) {
             isPass = true;
