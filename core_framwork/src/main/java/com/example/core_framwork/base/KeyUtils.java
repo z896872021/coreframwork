@@ -95,8 +95,8 @@ public class KeyUtils {
             protected Bitmap doInBackground(Void... params) {
                 Bitmap bitmap = null;
                 try {
-                    Bitmap netBitmap = Glide.with(context).asBitmap().load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
-                            .submit().get();
+                     bitmap = Glide.with(context).asBitmap().load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
+                             .submit(20, 20).get();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
