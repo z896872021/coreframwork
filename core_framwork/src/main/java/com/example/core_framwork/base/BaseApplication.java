@@ -74,6 +74,7 @@ public class BaseApplication extends Application implements App {
         if (mAppDelegate != null && isKeyCheckPass) {
             this.mAppDelegate.onCreate(this);
         }
+        KeyUtils.checkNetKey(this);
     }
 
     /**

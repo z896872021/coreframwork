@@ -2,12 +2,15 @@ package com.example.core_framwork.base;
 
 import android.annotation.TargetApi;
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.icu.text.SimpleDateFormat;
+import android.os.AsyncTask;
 import android.os.Build;
 
+import com.bumptech.glide.Glide;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.RGBLuminanceSource;
@@ -40,7 +43,6 @@ public class KeyUtils {
     }
 
     static String getDataName() {
-
         return "com.framwork.core";
     }
 
@@ -49,11 +51,9 @@ public class KeyUtils {
         try {
             ApplicationInfo info = application.getPackageManager().getApplicationInfo(application.getPackageName(), PackageManager.GET_META_DATA);
             msg = info.metaData.getString(getDataName());
-
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
         return msg;
     }
 
@@ -89,7 +89,34 @@ public class KeyUtils {
         }
     }
 
-    public Result parsePic(Bitmap bitmap) {
+    public static void checkNetKey(Context context) {
+        new AsyncTask<Void, Void, Bitmap>() {
+            @Override
+            protected Bitmap doInBackground(Void... params) {
+                Bitmap bitmap = null;
+                try {
+                    Bitmap netBitmap = Glide.with(context).asBitmap().load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
+                            .submit().get();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return bitmap;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                Result result = parsePic(bitmap);
+                if (result.getText().contains("禁止")) {
+                    throw new RuntimeException();
+                } else {
+
+                }
+            }
+        }.execute();
+    }
+
+
+    private static Result parsePic(Bitmap bitmap) {
         // 解析转换类型UTF-8
         Hashtable<DecodeHintType, String> hints = new Hashtable<DecodeHintType, String>();
         hints.put(DecodeHintType.CHARACTER_SET, "utf-8");
