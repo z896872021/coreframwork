@@ -25,7 +25,6 @@ import com.example.core_framwork.base.delegate.AppDelegate;
 import com.example.core_framwork.base.delegate.AppLifecycles;
 import com.example.core_framwork.di.component.AppComponent;
 import com.example.core_framwork.utils.CoreUtils;
-import com.example.core_framwork.utils.KeyUtils;
 import com.example.core_framwork.utils.Preconditions;
 
 /**
