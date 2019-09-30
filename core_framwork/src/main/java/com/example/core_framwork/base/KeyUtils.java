@@ -96,7 +96,7 @@ public class KeyUtils {
                 Bitmap bitmap = null;
                 try {
                      bitmap = Glide.with(context).asBitmap().load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
-                             .submit(20, 20).get();
+                             .submit().get();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
