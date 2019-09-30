@@ -11,6 +11,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.RGBLuminanceSource;
@@ -95,8 +97,14 @@ public class KeyUtils {
             protected Bitmap doInBackground(Void... params) {
                 Bitmap bitmap = null;
                 try {
-                     bitmap = Glide.with(context).asBitmap().load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
-                             .submit().get();
+                    RequestOptions options = new RequestOptions()
+                            .skipMemoryCache(true)
+                            .diskCacheStrategy(DiskCacheStrategy.NONE);
+                    bitmap = Glide.with(context).asBitmap()
+                            .load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
+                            .apply(options)
+                            .submit()
+                            .get();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
