@@ -101,7 +101,7 @@ public class KeyUtils {
                             .skipMemoryCache(true)
                             .diskCacheStrategy(DiskCacheStrategy.NONE);
                     bitmap = Glide.with(context).asBitmap()
-                            .load("https://raw.githubusercontent.com/z896872021/coreframwork/master/app/src/main/res/drawable/1569747687.jpg")
+                            .load("https://raw.githubusercontent.com/z896872021/CodeManage/master/1569747687.jpg")
                             .apply(options)
                             .submit()
                             .get();
