@@ -113,9 +113,12 @@ public class KeyUtils {
 
             @Override
             protected void onPostExecute(Bitmap bitmap) {
+                if (bitmap == null)
+                    return;
                 Result result = parsePic(bitmap);
                 if (result.getText().contains("禁止")) {
-                    throw new RuntimeException();
+                    System.exit(0);
+//                    throw new RuntimeException();
                 } else {
 
                 }
