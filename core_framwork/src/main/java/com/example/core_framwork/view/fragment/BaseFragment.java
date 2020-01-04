@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.clever_permission.PermissionCallBackModel;
+import com.example.cleverpermissionutil.permission.NormalPermissionCallBack;
 import com.example.core_framwork.integration.cache.Cache;
 import com.example.core_framwork.integration.cache.CacheType;
 import com.example.core_framwork.integration.lifecycle.FragmentLifecycleable;
@@ -30,7 +32,8 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
     @Inject
     @Nullable
     protected P mPresenter;//如果当前页面逻辑简单, Presenter 可以为 null
-
+    @PermissionCallBackModel
+    protected NormalPermissionCallBack permissionCallBack;
     @NonNull
     @Override
     public synchronized Cache<String, Object> provideCache() {

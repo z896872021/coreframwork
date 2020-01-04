@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.View;
 
+import com.example.clever_permission.PermissionCallBackModel;
+import com.example.cleverpermissionutil.permission.NormalPermissionCallBack;
 import com.example.core_framwork.integration.cache.Cache;
 import com.example.core_framwork.integration.cache.CacheType;
 import com.example.core_framwork.integration.lifecycle.ActivityLifecycleable;
@@ -43,7 +45,8 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
     @Inject
     @Nullable
     protected P mPresenter;//如果当前页面逻辑简单, Presenter 可以为 null
-
+    @PermissionCallBackModel
+    protected NormalPermissionCallBack permissionCallBack;
     @NonNull
     @Override
     public synchronized Cache<String, Object> provideCache() {

@@ -67,6 +67,7 @@ public class PermissionUtil {
         void onRequestPermissionFailureWithAskNeverAgain(List<String> permissions);
     }
 
+    @Deprecated
     public static void requestPermission(final RequestPermission requestPermission, RxPermissions rxPermissions, RxErrorHandler errorHandler, String... permissions) {
         if (permissions == null || permissions.length == 0) return;
 
@@ -102,12 +103,12 @@ public class PermissionUtil {
                                 requestPermission.onRequestPermissionFailure(failurePermissions);
                             }
 
-                            if (askNeverAgainPermissions.size() > 0){
+                            if (askNeverAgainPermissions.size() > 0) {
                                 Timber.tag(TAG).d("Request permissions failure with ask never again");
                                 requestPermission.onRequestPermissionFailureWithAskNeverAgain(askNeverAgainPermissions);
                             }
 
-                            if (failurePermissions.size() == 0 && askNeverAgainPermissions.size() == 0){
+                            if (failurePermissions.size() == 0 && askNeverAgainPermissions.size() == 0) {
                                 Timber.tag(TAG).d("Request permissions success");
                                 requestPermission.onRequestPermissionSuccess();
                             }

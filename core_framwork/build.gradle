@@ -61,6 +61,7 @@ dependencies {
 
 //    权限请求
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    implementation 'com.github.z896872021:CleverPermission:1.0'
 //    butterknife
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
