@@ -349,7 +349,7 @@ public final class AppManager {
                 if (DEPENDENCY_SUPPORT_DESIGN) {
                     Activity activity = getCurrentActivity() == null ? getTopActivity() : getCurrentActivity();
                     View view = activity.getWindow().getDecorView().findViewById(android.R.id.content);
-                    view.setBackgroundColor(Color.BLACK);
+                    view.setBackgroundColor(Color.WHITE);
                     Snackbar snackbar = Snackbar.make(view, message, isLong ? Snackbar.LENGTH_LONG : Snackbar.LENGTH_SHORT);
                     snackbar.setActionTextColor(Color.WHITE);
                     snackbar.show();
