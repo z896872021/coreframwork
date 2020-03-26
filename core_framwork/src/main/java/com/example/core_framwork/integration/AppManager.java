@@ -20,12 +20,12 @@ import android.app.Application;
 import android.app.Dialog;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-
 
 import com.example.core_framwork.utils.CoreUtils;
 import com.google.android.material.snackbar.Snackbar;
@@ -69,13 +69,13 @@ public final class AppManager {
      * 当前在前台的 Activity
      */
     private Activity mCurrentActivity;
+
     /**
      * 此方法作废, 现在可通过 {@link AppManager#getAppManager()} 直接访问 {@link AppManager}
      * <p>
      * 提供给外部扩展 {@link AppManager} 的 {@link #onReceive(Message)} 方法
      */
 //    private HandleListener mHandleListener;
-
     private AppManager() {
     }
 
@@ -327,6 +327,7 @@ public final class AppManager {
         }
         return null;
     }
+
     /**
      * 让在前台的 {@link Activity}, 使用 {@link Snackbar} 显示文本内容
      *
@@ -348,7 +349,10 @@ public final class AppManager {
                 if (DEPENDENCY_SUPPORT_DESIGN) {
                     Activity activity = getCurrentActivity() == null ? getTopActivity() : getCurrentActivity();
                     View view = activity.getWindow().getDecorView().findViewById(android.R.id.content);
-                    Snackbar.make(view, message, isLong ? Snackbar.LENGTH_LONG : Snackbar.LENGTH_SHORT).show();
+                    view.setBackgroundColor(Color.BLACK);
+                    Snackbar snackbar = Snackbar.make(view, message, isLong ? Snackbar.LENGTH_LONG : Snackbar.LENGTH_SHORT);
+                    snackbar.setActionTextColor(Color.WHITE);
+                    snackbar.show();
                 } else {
                     CoreUtils.makeText(mApplication, message);
                 }
