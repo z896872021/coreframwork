@@ -207,6 +207,7 @@ public class CharacterHandler {
     }
 
     public interface OnColorTextClickListener {
+
         void onColorTextClick(View view);
     }
 }
