@@ -15,9 +15,21 @@
  */
 package com.example.core_framwork.utils;
 
+import android.content.Context;
 import android.text.InputFilter;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.annotation.ColorRes;
+
+import com.example.core_framwork.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -141,5 +153,60 @@ public class CharacterHandler {
             message = xml;
         }
         return message;
+    }
+
+    /**
+     * 设置 TextView 中部分文字颜色.
+     *
+     * @param allTextStr               全部文字
+     * @param colorTextStr             需要改变颜色的文字
+     * @param colorId                  改变的颜色
+     * @param size                     文字大小
+     * @param onColorTextClickListener 改变颜色文字的点击事件.
+     */
+    public static void setColorAndSizeTextClick(TextView tv,
+                                                String allTextStr,
+                                                String colorTextStr,
+                                                @ColorRes int colorId,
+                                                int size,
+                                                OnColorTextClickListener onColorTextClickListener) {
+
+
+        if (!allTextStr.contains(colorTextStr)) {
+            throw new RuntimeException(allTextStr + "  不包含  " + colorTextStr + "  文字");
+        }
+
+        Context context = tv.getContext();
+
+        int start = allTextStr.indexOf(colorTextStr);
+        int end = start + colorTextStr.length();
+
+        SpannableString spanText = new SpannableString(allTextStr);
+        spanText.setSpan(new ClickableSpan() {
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                if (colorId != 0)
+                    ds.setColor(context.getResources().getColor(colorId)); //设置文字颜色
+                if (size != 0) {
+                    ds.setTextSize(CoreUtils.sp2px(context, size));
+                }
+                ds.setUnderlineText(false);
+            }
+
+            @Override
+            public void onClick(View view) {
+                if (null != onColorTextClickListener) {
+                    onColorTextClickListener.onColorTextClick(view);
+                }
+            }
+        }, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tv.setHighlightColor(context.getResources().getColor(R.color.transparent));// 设置点击后的颜色为透明，否则会一直出现高亮
+        tv.setText(spanText);
+        tv.setMovementMethod(LinkMovementMethod.getInstance());// 设置变色文字点击事件
+    }
+
+    interface OnColorTextClickListener {
+        void onColorTextClick(View view);
     }
 }
