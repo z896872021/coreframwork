@@ -206,7 +206,7 @@ public class CharacterHandler {
         tv.setMovementMethod(LinkMovementMethod.getInstance());// 设置变色文字点击事件
     }
 
-    interface OnColorTextClickListener {
+    public interface OnColorTextClickListener {
         void onColorTextClick(View view);
     }
 }
