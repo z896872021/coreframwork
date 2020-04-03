@@ -164,13 +164,12 @@ public class CharacterHandler {
      * @param size                     文字大小
      * @param onColorTextClickListener 改变颜色文字的点击事件.
      */
-    public static void setColorAndSizeTextClick(TextView tv,
-                                                String allTextStr,
-                                                String colorTextStr,
-                                                @ColorRes int colorId,
-                                                int size,
-                                                OnColorTextClickListener onColorTextClickListener) {
-
+    public static SpannableString getColorAndSizeTextClick(TextView tv,
+                                                           String allTextStr,
+                                                           String colorTextStr,
+                                                           @ColorRes int colorId,
+                                                           int size,
+                                                           OnColorTextClickListener onColorTextClickListener) {
 
         if (!allTextStr.contains(colorTextStr)) {
             throw new RuntimeException(allTextStr + "  不包含  " + colorTextStr + "  文字");
@@ -202,8 +201,26 @@ public class CharacterHandler {
             }
         }, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tv.setHighlightColor(context.getResources().getColor(R.color.transparent));// 设置点击后的颜色为透明，否则会一直出现高亮
-        tv.setText(spanText);
         tv.setMovementMethod(LinkMovementMethod.getInstance());// 设置变色文字点击事件
+        return spanText;
+    }
+
+    /**
+     * 设置 TextView 中部分文字颜色.
+     *
+     * @param allTextStr               全部文字
+     * @param colorTextStr             需要改变颜色的文字
+     * @param colorId                  改变的颜色
+     * @param size                     文字大小
+     * @param onColorTextClickListener 改变颜色文字的点击事件.
+     */
+    public static void setColorAndSizeTextClick(TextView tv,
+                                                String allTextStr,
+                                                String colorTextStr,
+                                                @ColorRes int colorId,
+                                                int size,
+                                                OnColorTextClickListener onColorTextClickListener) {
+        tv.setText(getColorAndSizeTextClick(tv, allTextStr, colorTextStr, colorId, size, onColorTextClickListener));
     }
 
     public interface OnColorTextClickListener {
